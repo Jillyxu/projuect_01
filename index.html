@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../9.淘宝搜索案例-Jsonp+防抖/淘宝搜索案例/lib/jquery.js"></script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        #angel {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./angel.gif" alt="" id="angel">
+</body>
+
+<script>
+    $(function() {
+        var angel = $('#angel');
+        // 1.预定义一个timer节流阀
+        var timer = null;
+        // 2.监听文东mousemove事件
+        $(document).on('mousemove', function(e) {
+            // 4.判断节流阀是否为空，若干不为空，则说明距离上次执行时间间隔未到
+            if (timer) {
+                return
+            }
+            timer = setTimeout(function() {
+                $(angel).css('left', e.pageX + 'px').css('top', e.pageY + 'px');
+                // 3.当设置了鼠标跟随效果后，清空Timer,方便下次开启
+                timer = null;
+                console.log('ok'); //测试次数
+
+            }, 16);
+
+        })
+    })
+
+
+    history
+</script>
+
+</html>
